@@ -36,10 +36,11 @@ PICOLIBC_CFLAGS= \
 
 OPT?=-Os
 
-CFLAGS=$(ARCH_CFLAGS) --oslib=semihost --crt0=semihost \
+CFLAGS=$(ARCH_CFLAGS) --oslib=semihost \
 	-std=gnu99 $(OPT) -g \
 	-I. -I$(SNEK_QEMU) -I$(SNEK_ROOT) $(PICOLIBC_CFLAGS) $(SNEK_CFLAGS)
-
+# unsupported option "crt0" with default Debian GNU/Linux 11 toolset
+# CFLAGS += --crt0=semihost
 LDFLAGS=$(SNEK_LDFLAGS) $(CFLAGS) -n
 
 LIBS=-lm

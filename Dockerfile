@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     python3-serial \
     gcc-arm-none-eabi \
     gcc-riscv64-unknown-elf \
+    gcc-arm-linux-gnueabi \
     qemu-system-riscv32 \
     qemu-system-arm \
     picolibc-riscv64-unknown-elf \

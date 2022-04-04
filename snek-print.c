@@ -69,7 +69,7 @@ snek_poly_format(snek_buf_t *buf, snek_poly_t a, char format)
 	print_float:
 		i = (int) snek_poly_to_float(a);
 	print_int:
-		sprintf(tmp, format_string, i);
+		sprintf(tmp, format_string, i);  // snprintf?
 		buf->put_s(tmp, closure);
 		return;
 	case 'e':
@@ -117,12 +117,12 @@ snek_poly_format(snek_buf_t *buf, snek_poly_t a, char format)
 		buf->put_c('\'', closure);
 		break;
 	case snek_func:
-		sprintf_const(tmp, "<function at %d>",
+		sprintf_const(tmp, "<function at %d>",  // snprintf?
 			      snek_poly_to_offset(a));
 		buf->put_s(tmp, closure);
 		break;
 	case snek_builtin:
-		sprintf_const(tmp, "<builtin %s>",
+		sprintf_const(tmp, "<builtin %s>",  // snprintf?
 			      snek_name_string(snek_poly_to_builtin_id(a)));
 		buf->put_s(tmp, closure);
 		break;

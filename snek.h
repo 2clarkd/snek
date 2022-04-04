@@ -575,6 +575,10 @@ snek_panic(const char *message);
 #define strfromf_const strfromf
 #endif
 
+#ifndef strfromf  // unsupported with default Debian GNU/Linux 11 toolset
+#define strfromf snprintf
+#endif
+
 extern bool snek_abort;
 
 /* snek-frame.c */
